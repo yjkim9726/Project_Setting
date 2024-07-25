@@ -1,0 +1,39 @@
+# Spring Setting
+spring:
+  config:
+    activate:
+      on-profile: local
+  database:
+    datasource:
+      hikari:
+        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/yjkim
+        username: root
+        password: yjkim
+  security:
+    jwt:
+      secret-key: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+      algorithm: HS256
+      access-token-expired-time: 7200000  # 2시간
+      refresh-token-expired-time: 1209600000 # 2주
+      grant-type: Bearer
+
+## Logger
+logging:
+  config: classpath:logback/logback-local.xml
+
+## CORS
+cors:
+  allowed-origins:
+    http://localhost:9101
+
+## Application
+application:
+  host:
+  license: API Documents
+  version: v1.0.0
+  title: 테스트 스웨거 API (local)
+  description: <Server Engineer - 김윤정>
+  name: API 사용 문서
+  email: yjkim9726@gmail.com
+  server-url: http://localhost:9101
